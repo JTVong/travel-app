@@ -3,7 +3,7 @@ const path = require("path");
 
 module.exports = {
   mode: "development",
-  entry: "./src/App.js",
+  entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js"
@@ -17,5 +17,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({template: "./src/index.html"})]
+  plugins: [new HtmlWebpackPlugin({template: "./public/index.html"})]
 }

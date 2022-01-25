@@ -4,6 +4,12 @@
   "description": "",
   "main": "webpack.config.js",
   "dependencies": {
+    "@material-ui/core": "^4.12.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.60",
+    "@react-google-maps/api": "^2.7.0",
+    "axios": "^0.25.0",
+    "google-map-react": "^2.1.10",
     "html-webpack-plugin": "^5.5.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -20,7 +26,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development",
+    "start-server": "nodemon server/index.js"
   },
   "repository": {
     "type": "git",

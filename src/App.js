@@ -1,8 +1,25 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { CssBaseline, Grid } from "@material-ui/core"
+import Header from './components/Header/Header.jsx';
+import List from './components/List/List.jsx';
+import Map from './components/Map/Map.jsx';
+import PlaceDetails from './components/PlaceDetails/PlaceDetails.jsx';
 
 const App = () => {
-  return <h1> Hello! welcome to my App</h1>
-}
+  return(
+    <>
+      <CssBaseline/>
+      <Header/>
+       <Grid container spacing={3} style={{width: '100%'}}>
+        <Grid item xs={12} md={4}>
+          <List/>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Map />
+        </Grid>
+      </Grid>
+    </>
+  )
 
-ReactDOM.render(<App/>, document.querySelector("#root"));
+}
+export default App;
