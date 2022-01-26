@@ -4,28 +4,12 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import PlaceDetails from '../PlaceDetails/PlaceDetails.jsx';
 
 import useStyles from './styles';
-const List = () => {
+const List = ({ places }) => {
+  console.log(places)
   const classes = useStyles();
   const [type, setType] = useState('restaurants')
   const [rating, setRating] = useState(0)
-  const places = [
-    {name: 'A'},
-    {name: 'B'},
-    {name: 'C'},
-    {name: 'D'},
-    {name: 'E'},
-    {name: 'F'},
-    {name: 'G'},
-    {name: 'H'},
-    {name: 'A'},
-    {name: 'B'},
-    {name: 'C'},
-    {name: 'D'},
-    {name: 'E'},
-    {name: 'F'},
-    {name: 'G'},
-    {name: 'H'}
-  ]
+
   return (
     <div className={classes.container}>
       <Typography variant='h5'> Restaurant, Hotels & Places to visit </Typography>
