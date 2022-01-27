@@ -4,20 +4,10 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import PlaceDetails from '../PlaceDetails/PlaceDetails.jsx';
 
 import useStyles from './styles';
+
 const List = ({ places, selectedPlace, isLoading, type, rating, setType, setRating }) => { // will do a overlay or feature to implement click later
-
   const classes = useStyles();
-  // const [type, setType] = useState('restaurants')
-  // const [rating, setRating] = useState(0)
-  // const [elRefs, setElRefs] = useState([]);
 
-  // useEffect(() => {
-
-  //   const refs = Array(places?.length).fill().map((_, index)=>(elRefs[index] || createRef()))
-
-  //   setElRefs(refs);
-  // }, [places])
-  console.log(places)
   return (
     <div className={classes.container}>
 
@@ -26,7 +16,7 @@ const List = ({ places, selectedPlace, isLoading, type, rating, setType, setRati
               <CircularProgress size="5rem" />
             </div>
           : <>
-              <Typography variant='h5'> Restaurant, Hotels & Places to visit </Typography>
+              <Typography variant='h5'> Restaurants, Hotels & Places to visit </Typography>
               <FormControl className={classes.formControl}>
                 <InputLabel>Type</InputLabel>
                 <Select value={type} onChange={e => setType(e.target.value)}>

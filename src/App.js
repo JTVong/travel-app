@@ -4,18 +4,19 @@ import Header from './components/Header/Header.jsx';
 import List from './components/List/List.jsx';
 import Map from './components/Map/Map.jsx';
 import PlaceDetails from './components/PlaceDetails/PlaceDetails.jsx';
-import { getPlacesData } from './api';
+import { getPlacesData, getWeatherData} from './api';
+
 
 const App = () => {
   const [places, setPlaces] = useState([]);
-  //catch a location
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState(null);
   const [selectedPlace, setSelectedPlace] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [type, setType] = useState('restaurants');
   const [rating, setRating] = useState(0);
-  const [filteredPlaces, setFilteredPlaces] = useState([])
+  const [filteredPlaces, setFilteredPlaces] = useState([]);
+  const [ weatherData, setWeatherData] = useState([]);
 
   // useEffect(() => {
   //   navigator.geolocation.getCurrentPosition(({coords:{latitude, longitude}}) => {
@@ -25,15 +26,13 @@ const App = () => {
 
   // useEffect(()=>{
   //   const filteredPlaces = places.filter(place => place.rating && Number(place.rating) >= rating);
-
   //   setFilteredPlaces(filteredPlaces)
-  //   console.log('changed')
   // }, [rating])
 
   // useEffect(() => {
-
   //   if(bounds &&  bounds.sw && bounds.ne) {
   //     setIsLoading(true);
+  //        getWeatherData(coordinates, (data, err) => {setWeatherData(data)})
   //     getPlacesData( type,bounds,(data, err) => {
   //         setPlaces(data.filter(place => place.name && Number(place.num_reviews) > 0));
   //         setIsLoading(false);
@@ -65,6 +64,7 @@ const App = () => {
             coordinates={coordinates}
             places={ filteredPlaces.length ? filteredPlaces : places}
             setSelectedPlace={setSelectedPlace}
+            weatherData={weatherData}
 
           />
         </Grid>

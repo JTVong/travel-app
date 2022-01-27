@@ -9,10 +9,9 @@ const Header = ({setCoordinates}) => {
   const [autocomplete, setAutoComplete] = useState(null);
   const onLoad = (autoC) => setAutoComplete(autoC)
 
-
   const onPlaceChanged = () => {
     const lat = autocomplete.getPlace().geometry.location.lat();
-    const lng = autocomplete.getPlace().geometry.location.lng(); 
+    const lng = autocomplete.getPlace().geometry.location.lng();
     setCoordinates({lat, lng});
   }
 

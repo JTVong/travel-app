@@ -6,12 +6,12 @@ import Rating from '@material-ui/lab/Rating';
 
 import useStyles from './styles.js';
 import { APIKEY } from '../../../config.js';
+import mapStyles from './mapStyles.js';
 
-const Map = ({ setCoordinates, setBounds, coordinates, places, setSelectedPlace}) => {
+
+const Map = ({ setCoordinates, setBounds, coordinates, places, setSelectedPlace, weatherData }) => {
   const classes = useStyles();
   const match = useMediaQuery('(min-width: 600px)');
-  console.log(places)
-
 
   return (
     <div className={classes.mapContainer}>
@@ -21,7 +21,7 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setSelectedPlace}
         center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
-        options={''}
+        options={{ disableDefaultUI: true, zoomControl: true, styles: mapStyles }}
         onChange={(e) => {
           setCoordinates({ lat: e.center.lat, lng: e.center.lng })
           setBounds({ne: e.marginBounds.ne, sw: e.marginBounds.sw })
@@ -52,6 +52,22 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setSelectedPlace}
             }
           </div>
         ))}
+        {
+          weatherData?.list?.map((data, index) => (
+            <div key={index} lat={data.coord.lat} lng={data.coord.lon}>
+              <img height={80} src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}
+              onClick = {
+                () => {
+                  let lat = Number(data.coord.lat).toFixed(2);
+                  let lng = Number(data.coord.lon).toFixed(2);
+                  window.open(`https://weather.com/weather/today/l/${lat},${lng}?par=google`, '_blank')
+                }
+              }
+              />
+
+            </div>
+          ))
+        }
       </GoogleMapReact>
     </div>
   )

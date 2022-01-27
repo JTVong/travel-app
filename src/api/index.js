@@ -1,9 +1,9 @@
 const  axios = require('axios');
-const reverse = require('reverse-geocode')
 const { APIKEY2 } = require('../../config.js');
-const { APIKEY3 } = require('../../config.js');
+// const { APIKEY3 } = require('../../config.js');
 
-const URL = 'https://travel-advisor.p.rapidapi.com/restaurants/list-in-boundary';
+
+const weatherURL = 'https://community-open-weather-map.p.rapidapi.com/find';
 
 
 const getPlacesData = (type ,{ sw, ne }, callback) => {
@@ -24,25 +24,21 @@ const getPlacesData = (type ,{ sw, ne }, callback) => {
   }).catch(err => callback(null, err))
 }
 
-const getWeatherData = async () => {
-  try {
-    const { data } = axios.get('https://community-open-weather-map.p.rapidapi.com/weather', {
+const getWeatherData = ({ lat, lng }, callback) => {
+    axios(weatherURL, {
       params: {
-
-        lat: '0',
-        lon: '0',
-
+        lat: lat,
+        lon: lng,
       },
       headers: {
         'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
         'x-rapidapi-key': APIKEY2
       }
     })
-  } catch(error) {
-    console.log(error)
-  }
+    .then(({ data }) => callback(data, null))
+    .catch((error) => console.log(error))
 }
 
 module.exports.getPlacesData = getPlacesData;
-
+module.exports.getWeatherData = getWeatherData;
 
