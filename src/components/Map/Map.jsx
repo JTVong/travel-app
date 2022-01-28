@@ -12,7 +12,7 @@ import mapStyles from './mapStyles.js';
 const Map = ({ setCoordinates, setBounds, coordinates, places, setSelectedPlace, weatherData }) => {
   const classes = useStyles();
   const match = useMediaQuery('(min-width: 600px)');
-
+  
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact

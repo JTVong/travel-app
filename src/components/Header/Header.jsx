@@ -22,8 +22,8 @@ const Header = ({setCoordinates}) => {
           Travel Buddy
         </Typography>
         <Box display="flex">
-        <Typography variant="h6" className={classes.title}>
-          Explore new places
+        <Typography variant="h6" className={classes.title2}>
+          Search Place
         </Typography>
         <Autocomplete onLoad={onLoad} onPlaceChanged={onPlaceChanged}>
           <div className={classes.search}>

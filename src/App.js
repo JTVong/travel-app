@@ -25,7 +25,7 @@ const App = () => {
   // }, [])
 
   // useEffect(()=>{
-  //   const filteredPlaces = places.filter(place => place.rating && Number(place.rating) >= rating);
+  //   const filteredPlaces = places.filter(place => place.rating && (Math.floor(Number(place.rating)) >= rating));
   //   setFilteredPlaces(filteredPlaces)
   // }, [rating])
 
@@ -33,7 +33,7 @@ const App = () => {
   //   if(bounds &&  bounds.sw && bounds.ne) {
   //     setIsLoading(true);
   //        getWeatherData(coordinates, (data, err) => {setWeatherData(data)})
-  //     getPlacesData( type,bounds,(data, err) => {
+  //       getPlacesData( type,bounds,(data, err) => {
   //         setPlaces(data.filter(place => place.name && Number(place.num_reviews) > 0));
   //         setIsLoading(false);
   //         setFilteredPlaces([]);
@@ -55,6 +55,7 @@ const App = () => {
             setType={setType}
             rating={rating}
             setRating={setRating}
+            setSelectedPlace={setSelectedPlace}
           />
         </Grid>
         <Grid item xs={12} md={8}>

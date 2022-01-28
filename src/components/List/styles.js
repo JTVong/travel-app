@@ -17,6 +17,9 @@ export default makeStyles((theme) => ({
     marginBottom: '30px'
   },
   list: {
-    height: '75vh', overflow: 'auto'
+    height: '85vh', overflow: 'auto'
+  },
+  card: {
+    height: '20vh'
   }
 }));

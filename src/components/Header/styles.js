@@ -3,7 +3,18 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   title: {
     display: 'none',
-    color: '#03045e',
+    color: '#3a0ca3',
+    fontSize:'2.5rem',
+    textShadow: '3px 5px #62b6cb',
+
+    fontFamily: "'Archivo Black', sans-serif",
+    [theme.breakpoints.up('sm')]: {
+      display: 'block'
+    }
+  },
+  title2: {
+    display: 'none',
+    color: '#8f857d',
     [theme.breakpoints.up('sm')]: {
       display: 'block'
     }

@@ -1,6 +1,6 @@
 const  axios = require('axios');
-const { APIKEY2 } = require('../../config.js');
-// const { APIKEY3 } = require('../../config.js');
+const { APIKEY2,  weatherKEY  } = require('../../config.js');
+
 
 
 const weatherURL = 'https://community-open-weather-map.p.rapidapi.com/find';
@@ -32,7 +32,7 @@ const getWeatherData = ({ lat, lng }, callback) => {
       },
       headers: {
         'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-        'x-rapidapi-key': APIKEY2
+        'x-rapidapi-key': weatherKEY
       }
     })
     .then(({ data }) => callback(data, null))
